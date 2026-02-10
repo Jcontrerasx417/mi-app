@@ -280,7 +280,7 @@
                 <p>Déjame tu mensaje y te responderé pronto</p>
             </div>
 
-            <form id="contactForm">
+            <form method="GET" action= "/contacto">
                 <div class="form-group">
                     <label for="email">Correo Electrónico</label>
                     <input 
@@ -315,67 +315,6 @@
         </div>
     </div>
 
-    <script>
-        // Contador de caracteres
-        const messageTextarea = document.getElementById('message');
-        const charCount = document.getElementById('charCount');
-
-        messageTextarea.addEventListener('input', function() {
-            const count = this.value.length;
-            charCount.textContent = count;
-            
-            // Cambiar color cuando se acerca al límite
-            if (count > 450) {
-                charCount.style.color = '#ff6b35';
-            } else {
-                charCount.style.color = '#a8b2d1';
-            }
-        });
-
-        // Manejo del envío del formulario
-        const form = document.getElementById('contactForm');
-        const successMessage = document.getElementById('successMessage');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Obtener valores
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Validación básica
-            if (email && message) {
-                // Aquí puedes agregar la lógica para enviar el formulario
-                // Por ejemplo, usando fetch() para enviar a un servidor
-                
-                console.log('Email:', email);
-                console.log('Mensaje:', message);
-                
-                // Mostrar mensaje de éxito
-                successMessage.classList.add('show');
-                
-                // Limpiar formulario
-                form.reset();
-                charCount.textContent = '0';
-                
-                // Ocultar mensaje después de 5 segundos
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                }, 5000);
-            }
-        });
-
-        // Animación de enfoque en inputs
-        const inputs = document.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'translateX(5px)';
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'translateX(0)';
-            });
-        });
-    </script>
+    
 </body>
 </html>

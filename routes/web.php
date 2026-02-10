@@ -10,9 +10,10 @@ Route::get("/formulario", function () {
 });
 
 
-Route::get('/contanto', function (Request $request){
+Route::get('/contacto', function (Request $request){
     echo "<pre>";
-    print_r($request->get("nombre"));
+    print_r($request->get("email"));
+    print_r($request->get("mensaje"));
     echo "<pre>";
 
 
